@@ -26,10 +26,10 @@ export const defaultTheme: Theme = {
 
   gray1: '#121214',
   gray2: '#202024',
-  gray3: '#323238',
-  gray4: '#7C7C8A',
-  gray5: '#8D8D99',
-  gray6: '#C4C4CC',
-  gray7: 'E1E1E6',
+  gray3: '#29292E',
+  gray4: '#323238',
+  gray5: '#7C7C8A',
+  gray6: '#8D8D99',
+  gray7: '#C4C4CC',
   white: '#FFFFFF',
 }

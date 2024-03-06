@@ -1,6 +1,6 @@
 // Rotas
 import { Routes, Route } from 'react-router-dom'
-import DeafaultLayout from '../layouts/DefaultLayout'
+import DeafaultLayout from './layouts/DefaultLayout'
 
 // Páginas
 import Home from './pages/Home'
