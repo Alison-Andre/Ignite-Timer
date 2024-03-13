@@ -16,7 +16,19 @@ export default function Home() {
         {/* Inputs */}
         <FormContainer>
           <label htmlFor="task">Vou trabalar em</label>
-          <TaskInput type="text" id="task" placeholder="Vou trabalhar em" />
+          <TaskInput
+            type="text"
+            id="task"
+            placeholder="Vou trabalhar em"
+            list="task-suggetions"
+          />
+
+          {/* Lista de sugestões */}
+          <datalist id="task-suggetions">
+            <option value="Estudar" />
+            <option value="Leitura" />
+            <option value="Praticar" />
+          </datalist>
 
           <label htmlFor="minutesAmount">Durante</label>
           <MinutesAmount

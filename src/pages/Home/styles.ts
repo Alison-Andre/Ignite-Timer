@@ -13,7 +13,7 @@ export const HomeContainer = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5.6rem;
+    gap: 10rem;
   }
 `
 /* Formulário */
@@ -96,6 +96,7 @@ export const MinutesAmount = styled(BaseInput)`
 export const Button = styled.button`
   width: 100%;
   padding: 1.5rem;
+
   display: flex;
   align-items: center;
   justify-content: center;
