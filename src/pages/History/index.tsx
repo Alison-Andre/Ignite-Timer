@@ -10,10 +10,10 @@ export default function History() {
           {/* Cabeçalho da tabela */}
           <thead>
             <tr>
-              <td>Tarefa</td>
-              <td>Duração</td>
-              <td>Início</td>
-              <td>Status</td>
+              <th>Tarefa</th>
+              <th>Duração</th>
+              <th>Início</th>
+              <th>Status</th>
             </tr>
           </thead>
 
@@ -23,6 +23,20 @@ export default function History() {
               <td>Leitura Bíblica</td>
               <td>25 Minutos</td>
               <td>Há cerca de 2 dias</td>
+              <td>Concluído</td>
+            </tr>
+
+            <tr>
+              <td>Revisão</td>
+              <td>25 Minutos</td>
+              <td>Há cerca de 1 dias</td>
+              <td>Concluído</td>
+            </tr>
+
+            <tr>
+              <td>Estudo</td>
+              <td>25 Minutos</td>
+              <td>Há cerca de 4 dias</td>
               <td>Concluído</td>
             </tr>
           </tbody>
