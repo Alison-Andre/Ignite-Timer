@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-/* Container */
+// Container
 export const HomeContainer = styled.main`
   flex: 1;
 
@@ -16,7 +16,7 @@ export const HomeContainer = styled.main`
     gap: 10rem;
   }
 `
-/* Formulário */
+// Formulário
 export const FormContainer = styled.div`
   width: 100%;
   display: flex;
@@ -34,7 +34,7 @@ export const FormContainer = styled.div`
   }
 `
 
-/* Minutos em tela */
+// Minutos em tela
 export const CountDownContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -59,7 +59,7 @@ export const CountDownContainer = styled.div`
   }
 `
 
-/* Separador dos minutos */
+// Separador dos minutos
 export const Separetor = styled.div`
   color: ${(props) => props.theme.greenDark};
   background: ${(props) => props.theme.gray2};
@@ -69,7 +69,7 @@ export const Separetor = styled.div`
   justify-content: center;
 `
 
-/* Campos de input */
+// Campos de input
 export const BaseInput = styled.input`
   color: ${(props) => props.theme.gray6};
   text-align: center;
@@ -92,7 +92,7 @@ export const MinutesAmount = styled(BaseInput)`
   width: 8rem;
 `
 
-/* Botão */
+// Botão
 export const Button = styled.button`
   width: 100%;
   padding: 1.5rem;

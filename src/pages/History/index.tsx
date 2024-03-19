@@ -1,4 +1,4 @@
-import { HistoryContainer, HistoryList } from './style'
+import { HistoryContainer, HistoryList, Status } from './style'
 
 export default function History() {
   return (
@@ -23,7 +23,9 @@ export default function History() {
               <td>Leitura Bíblica</td>
               <td>25 Minutos</td>
               <td>Há cerca de 2 dias</td>
-              <td>Concluído</td>
+              <td>
+                <Status statusColors="green">Concluído</Status>
+              </td>
             </tr>
 
             <tr>

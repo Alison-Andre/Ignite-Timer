@@ -5,6 +5,7 @@ interface Theme {
   greenDark: string
   red: string
   redDark: string
+  yellow: string
   gray1: string
   gray2: string
   gray3: string
@@ -23,6 +24,8 @@ export const defaultTheme: Theme = {
 
   red: '#F03847',
   redDark: '#8B0000',
+
+  yellow: '#FBA94C',
 
   gray1: '#121214',
   gray2: '#202024',
