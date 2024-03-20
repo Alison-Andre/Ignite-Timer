@@ -32,14 +32,18 @@ export default function History() {
               <td>Revisão</td>
               <td>25 Minutos</td>
               <td>Há cerca de 1 dias</td>
-              <td>Concluído</td>
+              <td>
+                <Status statusColors="yellow">Em andamento</Status>
+              </td>
             </tr>
 
             <tr>
               <td>Estudo</td>
               <td>25 Minutos</td>
               <td>Há cerca de 4 dias</td>
-              <td>Concluído</td>
+              <td>
+                <Status statusColors="red">Interompido</Status>
+              </td>
             </tr>
           </tbody>
         </table>

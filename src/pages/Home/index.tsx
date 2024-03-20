@@ -1,3 +1,4 @@
+// Estilos e Icones
 import { Play } from 'phosphor-react'
 import {
   HomeContainer,
@@ -9,10 +10,37 @@ import {
   MinutesAmount,
 } from './styles'
 
+// Bibliotecas
+import { useForm } from 'react-hook-form'
+// Biblioteca de validação
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as zod from 'zod'
+
 export default function Home() {
+  // Trabalhando as validações com o Zod
+
+  // Schema de validação
+  const newCycleFormValidationSchema = zod.object({
+    task: zod.string().min(3, 'O nome é muito curto para uma atividade'),
+    minutesAmount: zod
+      .number()
+      .min(10, 'O tempo é muito curto para uma atividade'),
+  })
+
+  // Importando as funções do hookForm
+  const { register, handleSubmit, watch } = useForm({
+    resolver: zodResolver(newCycleFormValidationSchema),
+  })
+
+  const task = watch('task')
+
+  const isValidSubimit = !task
+
+  function handleCreateNewCycle(data: any) { }
+
   return (
     <HomeContainer>
-      <form action="">
+      <form onSubmit={handleSubmit(handleCreateNewCycle)} action="">
         {/* Inputs */}
         <FormContainer>
           <label htmlFor="task">Vou trabalar em</label>
@@ -21,6 +49,7 @@ export default function Home() {
             id="task"
             placeholder="Vou trabalhar em"
             list="task-suggetions"
+            {...register('task')}
           />
 
           {/* Lista de sugestões */}
@@ -38,6 +67,7 @@ export default function Home() {
             step={5}
             min={5}
             max={60}
+            {...register('minutesAmount', { valueAsNumber: true })}
           />
 
           <span>Minutos</span>
@@ -51,7 +81,7 @@ export default function Home() {
           <span>0</span>
         </CountDownContainer>
 
-        <Button disabled type="submit">
+        <Button disabled={isValidSubimit} type="submit">
           <Play />
           Começar
         </Button>
