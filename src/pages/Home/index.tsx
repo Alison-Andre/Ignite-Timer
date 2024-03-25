@@ -27,16 +27,26 @@ export default function Home() {
       .min(10, 'O tempo é muito curto para uma atividade'),
   })
 
+  // Typagem
+  type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
+
   // Importando as funções do hookForm
-  const { register, handleSubmit, watch } = useForm({
+  const { register, handleSubmit, watch } = useForm<NewCycleFormData>({
     resolver: zodResolver(newCycleFormValidationSchema),
+    defaultValues: {
+      task: '',
+      minutesAmount: 0,
+    },
   })
 
+  // Observa o valor do campo 'task'
   const task = watch('task')
 
   const isValidSubimit = !task
 
-  function handleCreateNewCycle(data: any) { }
+  function handleCreateNewCycle(data: NewCycleFormData) {
+    console.log(data)
+  }
 
   return (
     <HomeContainer>
