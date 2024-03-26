@@ -15,6 +15,7 @@ import { useForm } from 'react-hook-form'
 // Biblioteca de validação
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
+import { useState } from 'react'
 
 export default function Home() {
   // Trabalhando as validações com o Zod
@@ -27,7 +28,7 @@ export default function Home() {
       .min(10, 'O tempo é muito curto para uma atividade'),
   })
 
-  // Typagem
+  // Tipagem
   type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
 
   // Importando as funções do hookForm
@@ -44,9 +45,35 @@ export default function Home() {
 
   const isValidSubimit = !task
 
-  function handleCreateNewCycle(data: NewCycleFormData) {
-    console.log(data)
+  // Ciclos
+  interface Cycle {
+    id: string
+    task: string
+    minutesAmount: number
   }
+
+  // Estado que armazena a lista de ciclos
+  const [cycles, setCycles] = useState<Cycle[]>([])
+
+  // Estado com o ciclo atual
+  const [activeCycleId, setActiveCycleId] = useState<string | null>(null)
+
+  // Responsável por lidar com a criação de um novo ciclo
+  function handleCreateNewCycle(data: NewCycleFormData) {
+    // Formato do ciclo
+    const newCycle = {
+      id: String(new Date().getTime()),
+      task: data.task,
+      minutesAmount: data.minutesAmount,
+    }
+
+    setCycles((state) => [...state, newCycle])
+    setActiveCycleId(newCycle.id)
+  }
+
+  // Busca o ciclo ativo atualmente
+  const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId)
+  console.log(activeCycle)
 
   return (
     <HomeContainer>
