@@ -58,6 +58,9 @@ export default function Home() {
   // Estado com o ciclo atual
   const [activeCycleId, setActiveCycleId] = useState<string | null>(null)
 
+  // Estado para armazenar os segundos do countdown
+  const [amountSecondsPassed, setAmountSecondsPassed] = useState(0)
+
   // Responsável por lidar com a criação de um novo ciclo
   function handleCreateNewCycle(data: NewCycleFormData) {
     // Formato do ciclo
@@ -74,6 +77,22 @@ export default function Home() {
   // Busca o ciclo ativo atualmente
   const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId)
   console.log(activeCycle)
+
+  // Lógica do countdow
+
+  // Converte o ciclo atual de minutos para segundos
+  const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0
+
+  // Armazena os segundos que já se passaram
+  const currentSeconds = activeCycle ? totalSeconds - amountSecondsPassed : 0
+
+  // Converte para exibir em tela monutos e segundos
+  const minutesAmount = Math.floor(currentSeconds / 60)
+  const secondsAmount = currentSeconds % 60
+
+  // Quando os minutos ficarem abaixo de 10 adiciona um 0, 09, 08 ...
+  const minutes = String(minutesAmount).padStart(2, '0')
+  const seconds = String(secondsAmount).padStart(2, '0')
 
   return (
     <HomeContainer>
@@ -111,11 +130,11 @@ export default function Home() {
         </FormContainer>
         {/* Inputs */}
         <CountDownContainer>
-          <span>0</span>
-          <span>0</span>
+          <span>{minutes[0]}</span>
+          <span>{minutes[1]}</span>
           <Separetor>:</Separetor>
-          <span>0</span>
-          <span>0</span>
+          <span>{seconds[0]}</span>
+          <span>{seconds[1]}</span>
         </CountDownContainer>
 
         <Button disabled={isValidSubimit} type="submit">
